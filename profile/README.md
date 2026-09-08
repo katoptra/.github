@@ -1,44 +1,32 @@
 # Katoptra
 
-Katoptra is Greek for mirrors. Each repository here is one mirror: an upstream, a bucket
-or a destination, and a sync pipeline that runs on a schedule from GitHub Actions inside
-a pinned toolbox. The public mirrors are served from Cloudflare R2 and listed with live
-status at [mirrors.ijosh.com](https://mirrors.ijosh.com/).
+Greek for mirrors. Bytes here are closer than they appear.
 
-| Mirror | Upstream | Cadence | Repository |
+| Mirror | Of | Every | Repo |
 |---|---|---|---|
-| [ctan.ijosh.com](https://ctan.ijosh.com/) | [CTAN](https://ctan.org), all of it | hourly | [ctan](https://github.com/katoptra/ctan) |
-| [tlnet.ijosh.com](https://tlnet.ijosh.com/) | CTAN `systems/texlive/tlnet`, what `tlmgr` installs from | daily | [tlnet](https://github.com/katoptra/tlnet) |
-| Dropbox to Proton Drive | a Dropbox account | nightly | [dropbox](https://github.com/katoptra/dropbox) |
+| [ctan.ijosh.com](https://ctan.ijosh.com/) | all of [CTAN](https://ctan.org) | hour | [ctan](https://github.com/katoptra/ctan) |
+| [tlnet.ijosh.com](https://tlnet.ijosh.com/) | the TeX Live repository `tlmgr` installs from | day | [tlnet](https://github.com/katoptra/tlnet) |
 
-Planned: CRAN, CPAN, iCloud Photos.
+Live status at [mirrors.ijosh.com](https://mirrors.ijosh.com/). More on the way.
 
-## How a mirror runs
+## The rules of the house
 
-1. List upstream and diff it against the state the last run left in the bucket.
-2. Work the delta in batches, each fetched, verified, uploaded and checkpointed before
-   the next starts. A run that dies repeats one batch, not all.
-3. Where upstream signs its tree, verify before publishing. TeX Live's control files are
-   checked against their SHA-512 and GPG signatures with the key fingerprint pinned, and
-   every package container against the signed checksum list.
-4. Read a sample back over the public domain, write the run summary, and ping
-   healthchecks.io. Silence is the alert.
+- Same bytes as upstream, under upstream's own paths. Nothing added, nothing renamed.
+- Where upstream signs, we check the signature before a single file goes live.
+- A run that dies repeats one batch, not the whole tree.
+- No credentials in any repo. Ever. Secrets arrive by name and leave when the run does.
+- Silence is the alarm. Every mirror pings a dead man's switch, and a missed ping sends the email.
+- One toolbox image runs everything, on a laptop and in Actions alike.
 
-Every step runs inside one pinned toolbox image, on a laptop and in Actions alike. No
-credential lives in any repository: each mirror has one 1Password vault and one
-service account that can read only that vault, and secrets reach a run by name. The
-pipelines share one toolbox and their sync engines from a common library.
+## Want one?
 
-## Want your own?
-
-Fork a mirror, set its three vars, and point the workflow at your vault. Each
-repository's README has the steps and the cost. A full CTAN mirror runs for under two
-dollars a month.
+- Fork a mirror.
+- Set three vars: where it comes from, which bucket, which hostname.
+- Point the workflow at your vault.
+- A full CTAN mirror costs under two dollars a month. The bandwidth is free.
 
 ## Contributing
 
-Pull requests are welcome. Read [CONTRIBUTING](https://github.com/katoptra/.github/blob/main/CONTRIBUTING.md)
-for the ground rules and [SECURITY](https://github.com/katoptra/.github/blob/main/SECURITY.md)
-for what the mirrors guarantee and how to report a problem privately.
-
-MIT licensed. Built by [Josh Vaughen](https://ijosh.com), [jshvn](https://github.com/jshvn).
+- Pull requests welcome. [CONTRIBUTING](https://github.com/katoptra/.github/blob/main/CONTRIBUTING.md) has the ground rules.
+- Found a way to serve altered bytes? [SECURITY](https://github.com/katoptra/.github/blob/main/SECURITY.md) says how to tell us quietly.
+- MIT licensed. Built by [Josh Vaughen](https://ijosh.com), [jshvn](https://github.com/jshvn).
