@@ -15,8 +15,8 @@ More are on the way.
 
 ## Why this exists
 
-- I built these for myself, and I use every one of them. They live here so the pipelines
-  can share one toolbox instead of each carrying its own.
+- I built these for myself. They live here so the pipelines are namespaced and share one
+  shared toolbox.
 - Open source in the sense that you can fork and run it. Or just use these published
   mirrors like I do.
 
