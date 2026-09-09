@@ -20,9 +20,10 @@ This policy applies to every katoptra repository that has no SECURITY file of it
 - A private mirror holds personal data. Its state is encrypted at rest, logs and
   summaries carry counts and never names, no workflow artifact is uploaded, and the
   runner is a single-tenant machine destroyed after the job.
-- No credential lives in a repository. Each mirror has one vault and one service
-  account that can read only that vault, and secrets reach a run by name for the
-  length of the run.
+- No credential lives in a repository. The organization has one 1Password vault with
+  one item per mirror and one service account that reads it. Secrets reach a run by
+  name for the length of the run, and only a dispatched sync run holds the service
+  account's token; a pull-request check gets no secret at all.
 
 Everything else on a public mirror is served as upstream serves it. Problems with the
 packages themselves belong upstream, to CTAN, TeX Live, CRAN or CPAN. This
