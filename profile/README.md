@@ -4,12 +4,12 @@ Greek for mirrors. Bytes here are closer than they appear.
 
 Each repository is one mirror: an upstream, a bucket, and a pipeline that syncs the two
 on a schedule from GitHub Actions. The mirrors are served from Cloudflare R2 and listed
-with live status at [mirrors.ijosh.com](https://mirrors.ijosh.com/).
+with live status at [katoptra.org](https://katoptra.org/).
 
 | Mirror | Upstream | Cadence | Repository |
 |---|---|---|---|
-| [ctan.ijosh.com](https://ctan.ijosh.com/) | [CTAN](https://ctan.org), all of it | hourly | [ctan](https://github.com/katoptra/ctan) |
-| [tlnet.ijosh.com](https://tlnet.ijosh.com/) | CTAN `systems/texlive/tlnet`, what `tlmgr` installs from | daily | [tlnet](https://github.com/katoptra/tlnet) |
+| [ctan.katoptra.org](https://ctan.katoptra.org/) | [CTAN](https://ctan.org), all of it | hourly | [ctan](https://github.com/katoptra/ctan) |
+| [tlnet.katoptra.org](https://tlnet.katoptra.org/) | CTAN `systems/texlive/tlnet`, what `tlmgr` installs from | daily | [tlnet](https://github.com/katoptra/tlnet) |
 
 More are on the way.
 

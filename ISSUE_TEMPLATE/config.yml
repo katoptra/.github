@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Mirror status
-    url: https://mirrors.ijosh.com/
+    url: https://katoptra.org/
     about: Live status and last sync time of every public mirror. Check here before reporting a mirror as down.
   - name: Report a security problem
     url: https://github.com/katoptra/.github/security/advisories/new
