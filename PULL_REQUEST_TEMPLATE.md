@@ -8,5 +8,5 @@
 
 ## Test plan
 
-- [ ] `task render` passes and the committed render was updated if the commands changed
+- [ ] `task check` passes, and `render.txt` was updated with `task render-update` if the commands changed
 - [ ] Verbs that write to a bucket were run on a fork against a scratch bucket, or this change touches none
