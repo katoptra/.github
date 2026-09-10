@@ -23,7 +23,7 @@ its own adds to them and says what it adds.
 ## Checking a change
 
 ```sh
-task render   # dry-run the whole pipeline inside the toolbox, no network
+task check    # render every command of the pipeline inside the toolbox, no network, and diff it against render.txt
 ```
 
 The check workflow runs the same render on every pull request and compares it with the

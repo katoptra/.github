@@ -26,7 +26,7 @@ This policy applies to every katoptra repository that has no SECURITY file of it
   account's token; a pull-request check gets no secret at all.
 
 Everything else on a public mirror is served as upstream serves it. Problems with the
-packages themselves belong upstream, to CTAN, TeX Live, CRAN or CPAN. This
+packages themselves belong upstream, to CTAN or TeX Live. This
 organization copies what they publish.
 
 ## Reporting
