@@ -10,6 +10,8 @@ listed with live status at [katoptra.org](https://katoptra.org/).
 |---|---|---|---|
 | [ctan.katoptra.org](https://ctan.katoptra.org/) | [CTAN](https://ctan.org), all of it | hourly | [ctan](https://github.com/katoptra/ctan) |
 | [tlnet.katoptra.org](https://tlnet.katoptra.org/) | CTAN `systems/texlive/tlnet`, what `tlmgr` installs from | daily | [tlnet](https://github.com/katoptra/tlnet) |
+| [gnu.katoptra.org](https://gnu.katoptra.org/) | [GNU](https://www.gnu.org/)'s release tree, `ftp.gnu.org/gnu` | twice daily | [gnu](https://github.com/katoptra/gnu) |
+| [nongnu.katoptra.org](https://nongnu.katoptra.org/) | [Savannah](https://savannah.nongnu.org/)'s nongnu releases | twice daily | [nongnu](https://github.com/katoptra/nongnu) |
 
 Two more mirror into Proton Drive rather than onto the web. What they copy is private;
 the pipelines are public and run on the same toolbox, so they are forks like the others.
