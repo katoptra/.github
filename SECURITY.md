@@ -7,12 +7,16 @@ This policy applies to every katoptra repository that has no SECURITY file of it
 - A public mirror copies what upstream publishes, byte for byte, and serves it under
   upstream's own paths. A checksum upstream publishes beside a file is mirrored beside
   it.
-- Where upstream signs its tree, the mirror verifies before publishing. TeX Live's
-  `texlive.tlpdb`, its installers and its updaters are checked against their SHA-512
-  and GPG signatures, with the TeX Live primary key fingerprint pinned in the pipeline.
-  A signature from an expired or revoked key is rejected. Every package container is
-  checked against the checksum in the signed tlpdb, and the tlpdb goes live only after
-  every container it names is in the bucket. `tlmgr` repeats the check on the client.
+- Where upstream signs an index of its tree, the mirror verifies before publishing. TeX
+  Live's `texlive.tlpdb`, its installers and its updaters are checked against their
+  SHA-512 and GPG signatures, with the TeX Live primary key fingerprint pinned in the
+  pipeline. A signature from an expired or revoked key is rejected. Every package
+  container is checked against the checksum in the signed tlpdb, and the tlpdb goes live
+  only after every container it names is in the bucket. `tlmgr` repeats the check on the
+  client.
+- GNU and Savannah sign each release file on its own. Those `.sig` files are mirrored
+  beside the files they sign and checked by the client (`gpg --verify`), not by the
+  mirror.
 - A batch that fails any check is not uploaded. The bucket stays at its last
   checkpoint.
 - After each publish the pipeline reads a sample of what it uploaded back through the
@@ -26,8 +30,8 @@ This policy applies to every katoptra repository that has no SECURITY file of it
   account's token; a pull-request check gets no secret at all.
 
 Everything else on a public mirror is served as upstream serves it. Problems with the
-packages themselves belong upstream, to CTAN or TeX Live. This
-organization copies what they publish.
+packages themselves belong upstream: CTAN, TeX Live, GNU or Savannah. This organization
+copies what they publish.
 
 ## Reporting
 
