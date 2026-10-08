@@ -17,7 +17,7 @@ This policy is applicable to each katoptra repository that has no SECURITY file.
     `texlive.tlpdb` that it examined. `tlmgr` downloads the `.xz` copy.
   - It compares each package container with its checksum in the signed tlpdb.
   - It uploads the tlpdb only after each container in the tlpdb is in the bucket.
-  - On the client, `tlmgr` does the same checks again.
+- On the client, `tlmgr` does the TeX Live signature check again.
 - GNU and Savannah sign each release file with a detached signature, a `.sig` file. The
   mirror copies each `.sig` file adjacent to the file that it signs. The client examines
   the signature (`gpg --verify`). The mirror does not examine it.
@@ -34,20 +34,20 @@ This policy is applicable to each katoptra repository that has no SECURITY file.
   - No workflow uploads an artifact.
   - The runner is a single-tenant machine that GitHub deletes after the job.
 - No repository holds a credential. The organization has one 1Password vault, with one
-  item for each mirror. One service account reads the vault. A run identifies each secret
-  with its name and holds the value only during the run. Only a dispatched sync run holds
-  the token of the service account. A pull-request check gets no secret.
+  item for each mirror. One service account reads the vault. A run uses the name of each
+  secret to get its value, and it holds the value only during the run. Only a dispatched
+  sync run holds the token of the service account. A pull-request check gets no secret.
 
-A public mirror serves all other files with no change from upstream. Send a report about a
-problem in a package to its upstream: CTAN, TeX Live, GNU or Savannah. This organization
-copies the files that they publish.
+A public mirror serves all other files with no change from upstream. A report about a
+problem in a package goes to its upstream: CTAN, TeX Live, GNU or Savannah. This
+organization copies the files that they publish.
 
 ## Reporting
 
 Send a private vulnerability report for each of these problems:
 
-- A way to serve changed content, or content with no correct signature, through a
-  katoptra mirror
+- A method to change the content that a katoptra mirror serves, or to make it serve content
+  with no correct signature
 - A vulnerability in a pipeline, in the scheduler or in katoptra.org.
 
 To send the report:
@@ -64,5 +64,11 @@ open an issue for the problem. All persons can read an issue.
 
 ## Supported versions
 
-The supported versions are the default branch of each repository and the mirrors in
-operation. There are no releases.
+The supported versions are:
+
+- The default branch of each repository
+- The lib release that has the `v2` tag
+- The mirrors in operation.
+
+The release workflow of lib moves the `v2` tag to each new v2 release. Each mirror includes
+lib at that tag. The other repositories have no releases.

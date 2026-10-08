@@ -2,15 +2,18 @@
 
 Katoptra is Greek for mirrors. Bytes here are closer than they appear.
 
-Most repositories here are mirrors. Four are not mirrors: [lib](https://github.com/katoptra/lib)
-(the toolbox), [dispatch](https://github.com/katoptra/dispatch) (the scheduler),
-[site](https://github.com/katoptra/site) (katoptra.org) and
-[.github](https://github.com/katoptra/.github) (this profile).
+Most repositories here are mirrors. These four repositories are not mirrors:
 
-A mirror is an upstream, a sink, and a pipeline that copies the upstream into the sink. The
-scheduler starts the runs, as jobs in GitHub Actions. Cloudflare R2 serves the public
-mirrors. [katoptra.org](https://katoptra.org/) shows the status of each mirror at the time
-that you open the page.
+- [lib](https://github.com/katoptra/lib), the toolbox
+- [dispatch](https://github.com/katoptra/dispatch), the scheduler
+- [site](https://github.com/katoptra/site), the page at katoptra.org
+- [.github](https://github.com/katoptra/.github), this profile.
+
+A mirror has an upstream, a sink and a pipeline that copies the upstream into the sink. The
+scheduler starts the runs, as jobs in GitHub Actions.
+
+Cloudflare R2 serves the public mirrors. [katoptra.org](https://katoptra.org/) shows the
+status of each mirror when you open the page.
 
 | Mirror | Upstream | Cadence | Repository |
 |---|---|---|---|
@@ -34,8 +37,8 @@ There will be more mirrors.
 
 - We made these mirrors because we use them. They are in one organization. Thus, the
   pipelines have one namespace and use one toolbox.
-- The code is open source, but only in one sense: you can fork it and run it. Or you can
-  use the published mirrors. We do the same.
+- The code is open source: you can fork it and run it. Or you can use the published
+  mirrors. We do the same.
 
 ## How a mirror operates
 
@@ -45,7 +48,7 @@ There will be more mirrors.
     its check and writes its report
   - One engine for each transport, which moves the bytes.
 - An rsync mirror gets a listing of upstream. It compares the listing with the state that
-  the last run left in the bucket. Then it publishes the delta in batches, with a
+  the last run put in the bucket. Then it publishes the delta in batches, with a
   checkpoint after each batch. It examines the signed tree of TeX Live before it
   publishes. GNU and Savannah releases have detached signatures, which clients examine.
 - A Proton mirror puts the content of its upstream into a staging tree. Then it uploads the
@@ -54,25 +57,24 @@ There will be more mirrors.
   the mirror.
 - Each run occurs in one pinned image, on a laptop and also in Actions. After a run
   completes its pipeline, it sends a ping to a healthcheck. If the healthcheck gets no
-  ping in time, it sends an alert.
-- A run identifies each secret with its name and gets the value from a vault. No
-  repository holds a credential or an endpoint. The `op://` references identify the vault
-  with its UUID.
+  ping before the end of its grace time, it sends an alert.
+- A run uses the name of each secret to get its value from a vault. No repository holds a
+  credential or an endpoint. The `op://` references use the UUID of the vault.
 
 ## Want your own?
 
 1. Fork a mirror.
-2. Do the steps under "Want your own?" in the README of that mirror. These steps give the
+2. In the README of that mirror, do the steps of "Want your own?". These steps give the
    lines to change, the bucket, the vault item, the accounts and the first run.
-3. For each part that more than one mirror can use, refer to lib's README. It gives each
-   part one time. For example, it tells how to make the vault and the service account. It
-   also gives the contents of the bucket and how the workflows run.
+3. For each part that more than one mirror can use, refer to lib's README. That README has
+   one description of each part. For example, it tells how to make the vault and the
+   service account. It also gives the contents of the bucket and how the workflows run.
 
 The cost of a full CTAN mirror is less than two dollars a month.
 
 ## Contributing
 
-- You can send pull requests. [CONTRIBUTING](https://github.com/katoptra/.github/blob/main/CONTRIBUTING.md) gives the ground rules.
-- If you find a way to serve changed bytes, [SECURITY](https://github.com/katoptra/.github/blob/main/SECURITY.md) tells how to send a private vulnerability report.
+- You can send pull requests. [CONTRIBUTING](https://github.com/katoptra/.github/blob/main/CONTRIBUTING.md) gives the rules.
+- If you find a method to change the bytes that a mirror serves, [SECURITY](https://github.com/katoptra/.github/blob/main/SECURITY.md) tells how to send a private vulnerability report.
 
 MIT licensed. Built by [Josh Vaughen](https://ijosh.com).
