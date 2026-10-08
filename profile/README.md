@@ -37,8 +37,8 @@ There will be more mirrors.
 
 - We made these mirrors because we use them. They are in one organization. Thus, the
   pipelines have one namespace and use one toolbox.
-- The code is open source: you can fork it and run it. Or you can use the published
-  mirrors. We do the same.
+- The code is open source only as follows: you can fork it and run it. Or you can use the
+  published mirrors. We do the same.
 
 ## How a mirror operates
 
