@@ -1,47 +1,68 @@
 # Security
 
-This policy applies to every katoptra repository that has no SECURITY file of its own.
+This policy is applicable to each katoptra repository that has no SECURITY file.
 
-## What the mirrors guarantee
+## The guarantees of the mirrors
 
-- A public mirror copies what upstream publishes, byte for byte, and serves it under
-  upstream's own paths. A checksum upstream publishes beside a file is mirrored beside
-  it.
-- Where upstream signs an index of its tree, the mirror verifies before publishing. TeX
-  Live's `texlive.tlpdb`, its installers and its updaters are checked against their
-  SHA-512 and GPG signatures, with the TeX Live primary key fingerprint pinned in the
-  pipeline. A signature from an expired or revoked key is rejected. Every package
-  container is checked against the checksum in the signed tlpdb, and the tlpdb goes live
-  only after every container it names is in the bucket. `tlmgr` repeats the check on the
-  client.
-- GNU and Savannah sign each release file on its own. Those `.sig` files are mirrored
-  beside the files they sign and checked by the client (`gpg --verify`), not by the
-  mirror.
-- A batch that fails any check is not uploaded. The bucket stays at its last
-  checkpoint.
-- After each publish the pipeline reads a sample of what it uploaded back through the
-  public domain and compares it with the staged copy.
-- A private mirror holds personal data. Its state is encrypted at rest, logs and
-  summaries carry counts and never names, no workflow artifact is uploaded, and the
-  runner is a single-tenant machine destroyed after the job.
-- No credential lives in a repository. The organization has one 1Password vault with
-  one item per mirror and one service account that reads it. Secrets reach a run by
-  name for the length of the run, and only a dispatched sync run holds the service
-  account's token; a pull-request check gets no secret at all.
+- A public mirror copies the files that upstream publishes, byte for byte. It serves them
+  at the same paths as upstream. When upstream publishes a checksum adjacent to a file, the
+  mirror copies the checksum adjacent to that file.
+- If upstream signs an index of its tree, the mirror examines the signatures before it
+  publishes. For TeX Live, the pipeline does these checks:
+  - It makes sure that `texlive.tlpdb` and the TeX Live installers and updaters agree with
+    their SHA-512 checksums and GPG signatures. The pipeline pins the fingerprint of the
+    TeX Live primary key.
+  - It rejects a signature from an expired or revoked key.
+  - It makes sure that `texlive.tlpdb.xz` decompresses, byte for byte, to the
+    `texlive.tlpdb` that it examined. `tlmgr` downloads the `.xz` copy.
+  - It compares each package container with its checksum in the signed tlpdb.
+  - It uploads the tlpdb only after each container in the tlpdb is in the bucket.
+  - On the client, `tlmgr` does the same checks again.
+- GNU and Savannah sign each release file with a detached signature, a `.sig` file. The
+  mirror copies each `.sig` file adjacent to the file that it signs. The client examines
+  the signature (`gpg --verify`). The mirror does not examine it.
+- If a check finds a problem in a batch, the pipeline does not upload that batch. The
+  bucket stays at its last checkpoint.
+- After the pipeline publishes, it reads a sample of the uploaded files through the domain
+  of the mirror. It compares the sample with the staged copy.
+- Each public mirror also reads one canary file through its domain, as a Perl client
+  (`libwww-perl`). It compares the file with the copy in the bucket. If the domain changes
+  the file or does not let a Perl client read it, the run stops with an error.
+- A private mirror holds personal data. These rules are applicable to it:
+  - The pipeline keeps the state of the mirror encrypted at rest.
+  - Logs and summaries show counts, not names.
+  - No workflow uploads an artifact.
+  - The runner is a single-tenant machine that GitHub deletes after the job.
+- No repository holds a credential. The organization has one 1Password vault, with one
+  item for each mirror. One service account reads the vault. A run identifies each secret
+  with its name and holds the value only during the run. Only a dispatched sync run holds
+  the token of the service account. A pull-request check gets no secret.
 
-Everything else on a public mirror is served as upstream serves it. Problems with the
-packages themselves belong upstream: CTAN, TeX Live, GNU or Savannah. This organization
-copies what they publish.
+A public mirror serves all other files with no change from upstream. Send a report about a
+problem in a package to its upstream: CTAN, TeX Live, GNU or Savannah. This organization
+copies the files that they publish.
 
 ## Reporting
 
-If you find a way to serve altered or unsigned content through a katoptra mirror, or a
-weakness in a pipeline, report it privately through GitHub's vulnerability reporting
-on the affected repository: the Security tab, then Report a vulnerability. If it is
-not clear which repository, report it against
-[katoptra/.github](https://github.com/katoptra/.github/security/advisories/new).
-Please do not open a public issue for it.
+Send a private vulnerability report for each of these problems:
+
+- A way to serve changed content, or content with no correct signature, through a
+  katoptra mirror
+- A vulnerability in a pipeline, in the scheduler or in katoptra.org.
+
+To send the report:
+
+1. Find the repository that has the problem. The scheduler is
+   [katoptra/dispatch](https://github.com/katoptra/dispatch), and katoptra.org is
+   [katoptra/site](https://github.com/katoptra/site).
+2. In that repository, open the Security tab.
+3. Select "Report a vulnerability".
+
+If you do not know which repository has the problem, send the report on
+[katoptra/.github](https://github.com/katoptra/.github/security/advisories/new). Do not
+open an issue for the problem. All persons can read an issue.
 
 ## Supported versions
 
-The default branch of each repository and the live mirrors. There are no releases.
+The supported versions are the default branch of each repository and the mirrors in
+operation. There are no releases.

@@ -5,4 +5,4 @@ contact_links:
     about: Live status and last sync time of every public mirror. Check here before reporting a mirror as down.
   - name: Report a security problem
     url: https://github.com/katoptra/.github/security/advisories/new
-    about: Altered or unsigned content served by a mirror, or a weakness in a pipeline. Reported privately, never in a public issue.
+    about: Altered or unsigned content served by a mirror, or a weakness in a pipeline, the scheduler or katoptra.org. Reported privately, never in a public issue.
