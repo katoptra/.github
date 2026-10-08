@@ -1,17 +1,18 @@
 # .github
 
-The organization profile and the defaults every katoptra repository inherits.
+This repository holds the profile of the katoptra organization and the default community
+files for each katoptra repository.
 
-| File | What it does |
+| File | Function |
 |---|---|
 | `profile/README.md` | The page at [github.com/katoptra](https://github.com/katoptra) |
-| `CONTRIBUTING.md` | Ground rules for every repository that has no CONTRIBUTING of its own |
-| `SECURITY.md` | What the mirrors guarantee and how to report a problem, for every repository without its own |
-| `ISSUE_TEMPLATE/config.yml` | Links shown when someone opens a new issue anywhere in the organization |
-| `PULL_REQUEST_TEMPLATE.md` | The pull request body every repository starts from |
+| `CONTRIBUTING.md` | The ground rules for each katoptra repository |
+| `SECURITY.md` | The guarantees of the mirrors, and how to send a report about a problem |
+| `ISSUE_TEMPLATE/config.yml` | The links that GitHub shows when a person opens a new issue in a katoptra repository |
+| `PULL_REQUEST_TEMPLATE.md` | The template for the body of each new pull request |
 
-GitHub reads the community files from here only for repositories that do not carry
-their own. A repository that needs to say more adds its own file, and this one stops
-applying to it.
+If a repository has a community file with the same name, GitHub shows that file, not the
+file here. A CONTRIBUTING file in a repository has a link to the CONTRIBUTING file here,
+and it adds to the rules in that file.
 
 MIT licensed. Built by [Josh Vaughen](https://ijosh.com).
