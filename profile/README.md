@@ -70,7 +70,8 @@ There will be more mirrors.
    one description of each part. For example, it tells how to make the vault and the
    service account. It also gives the contents of the bucket and how the workflows run.
 
-The cost of a full CTAN mirror is less than two dollars a month.
+A full CTAN mirror holds approximately 140 GB. On R2, the storage cost is approximately $2.10
+a month, at $0.015 for each GB-month.
 
 ## Contributing
 
