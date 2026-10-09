@@ -20,6 +20,7 @@ status of each mirror when you open the page.
 | [ctan.katoptra.org](https://ctan.katoptra.org/) | [CTAN](https://ctan.org), all of it | hourly | [ctan](https://github.com/katoptra/ctan) |
 | [tlnet.katoptra.org](https://tlnet.katoptra.org/) | CTAN `systems/texlive/tlnet`, the tree that `tlmgr` installs from | daily | [tlnet](https://github.com/katoptra/tlnet) |
 | [gnu.katoptra.org](https://gnu.katoptra.org/) | [GNU](https://www.gnu.org/)'s release tree, `ftp.gnu.org/gnu` | twice a day | [gnu](https://github.com/katoptra/gnu) |
+| [gnu-alpha.katoptra.org](https://gnu-alpha.katoptra.org/) | [GNU](https://www.gnu.org/)'s alpha release tree, `alpha.gnu.org/gnu` | twice a day | [gnu-alpha](https://github.com/katoptra/gnu-alpha) |
 | [nongnu.katoptra.org](https://nongnu.katoptra.org/) | [Savannah](https://savannah.nongnu.org/)'s nongnu releases | twice a day | [nongnu](https://github.com/katoptra/nongnu) |
 
 Two more mirrors are private mirrors. They copy their upstreams into Proton Drive, not onto
