@@ -116,7 +116,6 @@ Also obey these rules. If a rule here and the standard do not agree, obey the ru
 The standard is applicable to:
 
 - Each Markdown file
-- The landing page of tlnet
 - The text of the site: `mirrors.toml`, `llms.txt`, `_index.md`, the text in the templates
   that a person can see, and the description in the manifest
 - Each code comment and each docstring.
