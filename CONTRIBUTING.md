@@ -109,6 +109,8 @@ Also obey these rules. If a rule here and the standard do not agree, obey the ru
   is about.
 - Write "the scheduler" for the system that starts runs. In a mirror repository, write
   "an external scheduler".
+- Do not write the times of the runs or the cron expression of the healthcheck in a mirror
+  repository. Only the scheduler has them.
 - Use "dispatch" only as the verb or as the name of the repository. Do not write
   "dispatcher".
 - For a cadence, write "hourly", "daily" or "twice a day". Use "nightly" only for dropbox.
