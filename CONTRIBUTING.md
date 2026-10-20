@@ -131,7 +131,7 @@ The standard is not applicable to:
   name)
 - Generated files: `render.txt` and the `want/` trees of the fixtures
 - Output strings: `desc:`, `echo`, run summary rows, log and error lines, workflow input
-  descriptions, `PAGE_FOOT` and repository descriptions
+  descriptions, the text of the directory pages, `PAGE_FOOT` and repository descriptions
 - The copy of the ijosh theme in site, the git history, commit messages and files that are
   not in git.
 
