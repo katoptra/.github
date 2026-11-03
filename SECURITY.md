@@ -28,11 +28,6 @@ This policy is applicable to each katoptra repository that has no SECURITY file.
 - Each public mirror also reads one canary file through its domain, as a Perl client
   (`libwww-perl`). It compares the file with the copy in the bucket. If the domain changes
   the file or does not let a Perl client read it, the run stops with an error.
-- A private mirror holds personal data. These rules are applicable to it:
-  - The pipeline keeps the state of the mirror encrypted at rest.
-  - Logs and summaries show counts, not names.
-  - No workflow uploads an artifact.
-  - The runner is a single-tenant machine that GitHub deletes after the job.
 - No repository holds a credential. The organization has one 1Password vault, with one
   item for each mirror. One service account reads the vault. A run uses the name of each
   secret to get its value, and it holds the value only during the run. Only a dispatched

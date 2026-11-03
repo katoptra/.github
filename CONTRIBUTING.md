@@ -113,7 +113,7 @@ Also obey these rules. If a rule here and the standard do not agree, obey the ru
   repository. Only the scheduler has them.
 - Use "dispatch" only as the verb or as the name of the repository. Do not write
   "dispatcher".
-- For a cadence, write "hourly", "daily" or "twice a day". Use "nightly" only for dropbox.
+- For a cadence, write "hourly", "daily" or "twice a day".
 
 The standard is applicable to:
 

@@ -23,15 +23,6 @@ status of each mirror when you open the page.
 | [gnu-alpha.katoptra.org](https://gnu-alpha.katoptra.org/) | [GNU](https://www.gnu.org/)'s alpha release tree, `alpha.gnu.org/gnu` | twice a day | [gnu-alpha](https://github.com/katoptra/gnu-alpha) |
 | [nongnu.katoptra.org](https://nongnu.katoptra.org/) | [Savannah](https://savannah.nongnu.org/)'s nongnu releases | twice a day | [nongnu](https://github.com/katoptra/nongnu) |
 
-Two more mirrors are private mirrors. They copy their upstreams into Proton Drive, not onto
-the web. But their pipelines are in public repositories and use the same toolbox. Thus,
-you can also fork these two mirrors.
-
-| Mirror | Upstream | Cadence | Repository |
-|---|---|---|---|
-| GitHub | each repository of the accounts in `OWNERS`, one git bundle for each | daily | [github](https://github.com/katoptra/github) |
-| Dropbox | one Dropbox account | nightly | [dropbox](https://github.com/katoptra/dropbox) |
-
 There will be more mirrors.
 
 ## About these mirrors
@@ -52,10 +43,6 @@ There will be more mirrors.
   the last run put in the bucket. Then it publishes the delta in batches, with a
   checkpoint after each batch. It examines the signed tree of TeX Live before it
   publishes. GNU and Savannah releases have detached signatures, which clients examine.
-- A Proton mirror puts the content of its upstream into a staging tree. Then it uploads the
-  tree in one call. The upload does not send a file that did not change, and a changed
-  file becomes a new revision. Thus, the version history in Proton Drive is the history of
-  the mirror.
 - Each run occurs in one pinned image, on a laptop and also in Actions. After a run
   completes its pipeline, it sends a ping to a healthcheck. If the healthcheck gets no
   ping before the end of its grace time, it sends an alert.
