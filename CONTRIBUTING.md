@@ -35,8 +35,7 @@ task check
 - In a mirror, it makes a render of the pipeline in the toolbox image, without network
   access. The render shows each command of the pipeline. Then the check compares the
   render with `render.txt`.
-- In lib, each of the two examples, `examples/rsync` and `examples/proton`, has a
-  `task check` that does the same.
+- In lib, the example, `examples/rsync`, has a `task check` that does the same.
 - In dispatch, it runs gofmt, go vet and go test.
 - In site, it makes the page with Hugo and does checks on the result.
 
@@ -88,9 +87,8 @@ Use this checklist when you write:
 - Write each word in full, with no contractions. Use American spelling. Do not use a
   semicolon.
 - Write each safety note as a caution. Put the command first and the risk after it. For
-  example: "In a Proton mirror, do not run `task sync` from a laptop while an Actions run
-  can be in progress. The two runs use one session, and then a new login can be
-  necessary."
+  example: "In a mirror, do not run `task sync` from a laptop while an Actions run can be
+  in progress. The two runs write one state."
 - When a text has more than two parts, put the parts in a vertical list.
 
 If the checklist and the standard do not agree, obey the standard.
