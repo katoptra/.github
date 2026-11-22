@@ -15,4 +15,6 @@ If a repository has a community file with the same name, GitHub shows that file,
 file here. A CONTRIBUTING file in a repository has a link to the CONTRIBUTING file here.
 The file in the repository adds to the rules in the file here.
 
-MIT licensed. Built by [Josh Vaughen](https://ijosh.com).
+Copyright (C) 2026 Josh Vaughen. The license of this repository is the
+[GNU General Public License](LICENSE), version 3 or (at your option) any later version.
+Built by [Josh Vaughen](https://ijosh.com).

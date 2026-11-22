@@ -66,4 +66,6 @@ a month, at $0.015 for each GB-month.
 - You can send pull requests. [CONTRIBUTING](https://github.com/katoptra/.github/blob/main/CONTRIBUTING.md) gives the rules.
 - If you find a method to change the bytes that a mirror serves, [SECURITY](https://github.com/katoptra/.github/blob/main/SECURITY.md) tells how to send a private vulnerability report.
 
-MIT licensed. Built by [Josh Vaughen](https://ijosh.com).
+Copyright (C) 2026 Josh Vaughen. The code is free software under the
+[GNU General Public License](https://github.com/katoptra/.github/blob/main/LICENSE),
+version 3 or (at your option) any later version. Built by [Josh Vaughen](https://ijosh.com).
